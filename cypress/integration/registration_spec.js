@@ -34,7 +34,6 @@ describe('Registration test', function(){
 
         cy.get('#passwd')
             .type(password)
-            .should('not.have.length.at.least', 6 )
 
         cy.get('#address1')
             .type('Minsk')
@@ -49,7 +48,7 @@ describe('Registration test', function(){
 
         cy.get('#id_state')
             .select('Arizona')
-
+            
             function getRandomInt(min, max) {
                 min = Math.ceil(min);
                 max = Math.floor(max);
