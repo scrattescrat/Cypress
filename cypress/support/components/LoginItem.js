@@ -1,21 +1,15 @@
 class LoginItem {
 
-    typeEmail(){
+    login(email, password) {
         cy.get("#email")
-        .type('newqa111@gmail.com')
-    }
+        .type(email)
 
-    typePassword(){
         cy.get("#passwd")
-        .type('qwerty123')
-    }
+        .type(password)
 
-    clickSignInButton(){
         cy.get("#SubmitLogin > span")
         .click()
     }
-
-
 }
 
 export const loginItem = new LoginItem()

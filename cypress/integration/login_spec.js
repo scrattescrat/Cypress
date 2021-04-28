@@ -1,40 +1,37 @@
 /// <reference types="cypress" />
 
+import { loginItem } from "../support/components/LoginItem"
+import { accountPage } from "../support/pages/AccountPage"
 import{homePage, HomePage} from "../support/pages/HomePage"
-import{LoginPage} from "../support/pages/LoginPage"
+import{loginPage, LoginPage} from "../support/pages/LoginPage"
 
+describe('Login Suite', () => {
 
-describe('Login Test', function(){
-    it('Login', function(){
+    beforeEach(() => {
+        cy.visit('http://automationpractice.com/index.php') 
+})
 
+    it('should be authorized', () => {
         homePage.getHeader()
-        .typeEmail()
-        .typePassword()
-        .clickSignInButton()
-        
+            .navigateToLoginPage()
 
-        // cy.visit('http://automationpractice.com/index.php')
-        // cy.contains('Sign in').click()
+        loginPage.getLoginItem()
+        .login('newqa111@gmail.com', 'qwerty123')
 
-        // cy.url()
-        //     .should('include', '?controller=authentication&back=my-account')
+        accountPage.getInfoMessage()
+        .should('contain.text', 'Welcome to your account. Here you can manage all of your personal information and orders.')
+    })
 
-        // cy.get("#email")
-        //     .type('newqa111@gmail.com')
-        //     .should('have.value', 'newqa111@gmail.com')
+    it('shoud not be authorized, message "Invalid email address" appears', () => {
+        homePage.getHeader()
+            .navigateToLoginPage()
 
-        // cy.get("#passwd")
-        // .type('qwerty123')
-        // .should('have.value', 'qwerty123')   
-        
-        // cy.get("#SubmitLogin > span")
-        // .click()
+        loginPage.getLoginItem()
+            .login('wrongemail', 'qwerty123')
 
-        // cy.url()
-        // .should('include', 'controller=my-account')
+        loginPage.getErrorMessage()
+            .should('contain.text', 'Invalid email address.')    
 
-
-        
 
     })
 })

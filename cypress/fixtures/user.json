@@ -1,0 +1,11 @@
+{
+    "firstname": "Test",
+    "lastname": "User",
+    "address": "Minsk",
+    "city": "Minsk",
+    "country": "United States",
+    "state": "Arizona",
+    "phoneNumber": "123456789",
+    "alias": "My address"
+}
+

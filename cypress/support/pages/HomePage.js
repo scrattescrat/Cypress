@@ -1,9 +1,9 @@
-import {Header} from "../components/Header"
+import {header} from "../components/Header"
 
 class HomePage {
 
     getHeader(){
-        return Header
+        return header
     }
 }
 
