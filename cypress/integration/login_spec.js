@@ -16,10 +16,10 @@ describe('Login Suite', () => {
             .navigateToLoginPage()
 
         loginPage.getLoginItem()
-        .login('newqa111@gmail.com', 'qwerty123')
+            .login('newqa111@gmail.com', 'qwerty123')
 
         accountPage.getInfoMessage()
-        .should('contain.text', 'Welcome to your account. Here you can manage all of your personal information and orders.')
+            .should('contain.text', 'Welcome to your account. Here you can manage all of your personal information and orders.')
     })
 
     it('shoud not be authorized, message "Invalid email address" appears', () => {

@@ -1,8 +1,13 @@
 class Header {
 
-    navigateToLoginPage(){
+    navigateToLoginPage() {
         cy.contains('Sign in')
             .click()
+    }
+
+    typeToSearchField(item) {
+        cy.get('#search_query_top')
+            .type(item + '{enter}')           
     }
 }
 
